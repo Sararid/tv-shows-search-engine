@@ -1,11 +1,13 @@
-'use strict';
+"use strict";
+
 
 const userInput = document.querySelector('.js_inputUser');
-const searchBtn = document.querySelector('.js_btn');
-const seriesListHtml = document.querySelector('.js_movielist');
-const favoriteListHtml = document.querySelector('.js_favoriteList');
-const placeholderImage = 'https://via.placeholder.com/210x295/ffffff/666666/?text=TV';
-const errorMessage = document.querySelector('.js_errorMessage');
+const searchBtn = document.querySelector(".js_btn");
+const seriesListHtml = document.querySelector(".js_movielist");
+const favoriteListHtml = document.querySelector(".js_favoriteList");
+const placeholderImage =
+  "https://via.placeholder.com/210x295/ffffff/666666/?text=TV";
+const errorMessage = document.querySelector(".js_errorMessage");
 
 let listSeries = [];
 let favoriteSeries = [];
@@ -15,38 +17,37 @@ function handleApiFetch(e) {
   e.preventDefault();
 
   fetch(`https://api.tvmaze.com/search/shows?q=:${userInput.value}`)
-    .then(response => response.json())
+    .then((response) => response.json())
 
-    .then(dataShows => {
-      listSeries = dataShows.map(data => {
+    .then((dataShows) => {
+      listSeries = dataShows.map((data) => {
         return {
           id: data.show.id,
           name: data.show.name,
-          image: data.show.image
+          image: data.show.image,
         };
       });
 
       renderListShow();
-
     })
 
-    .catch(error => errorMessage.innerHTML = `Ha sucedido un error: ${error}`);
+    .catch(
+      (error) => (errorMessage.innerHTML = `Ha sucedido un error: ${error}`)
+    );
 }
 
-
 function renderListShow() {
-  seriesListHtml.innerHTML = '';
+  seriesListHtml.innerHTML = "";
 
   for (let eleInList of listSeries) {
-
     const movieName = eleInList.name;
     const movieId = eleInList.id;
-    const newItemList = document.createElement('li');
-    const img = document.createElement('img');
-    const textName = document.createElement('p');
+    const newItemList = document.createElement("li");
+    const img = document.createElement("img");
+    const textName = document.createElement("p");
     const textField = document.createTextNode(movieName);
     newItemList.id = movieId;
-    newItemList.className = 'styleList js_li';
+    newItemList.className = "styleList js_li";
 
     if (eleInList.image !== null) {
       let getImage = eleInList.image.medium;
@@ -59,14 +60,12 @@ function renderListShow() {
     textName.appendChild(textField);
     newItemList.append(textName, img);
     seriesListHtml.appendChild(newItemList);
-
   }
 
   handleClickLi();
 }
 
-searchBtn.addEventListener('click', handleApiFetch);
-
+searchBtn.addEventListener("click", handleApiFetch);
 
 'use strict';
 
@@ -81,10 +80,8 @@ function handleFav(e) {
       return ele.id === clickedId;
     });
     favoriteSeries.push(showEle);
-
   } else {
     favoriteSeries.splice(favFound, 1);
-
   }
 
   renderFavList(); //esto pinta 
@@ -98,22 +95,24 @@ function renderFavList() {
     const image = fav.image;
     const id = fav.id;
     let getImage = '';
+
     const newItemList = document.createElement('li');
     const img = document.createElement('img');
     const textName = document.createElement('p');
     const textField = document.createTextNode(nameShow);
+
     newItemList.id = id;
-    newItemList.className = "styleListFav js_li";
+    newItemList.className = "styleLiFavorite__listFav js_li";
 
     const removeFav = document.createElement('i');
-    removeFav.className = 'fas fa-times-circle styleRemove';
+    removeFav.className = 'fas fa-times styleRemove';
+
 
     if (image !== null) {
       getImage = image.medium;
       img.src = getImage;
     } else {
       img.src = placeholderImage;
-
     }
     img.alt = nameShow;
     textName.appendChild(textField);
@@ -138,6 +137,8 @@ function setInLocalStorage() {
   const stringList = JSON.stringify(favoriteSeries);
   localStorage.setItem('show', stringList);
 }
+
+
 
 function getInLocalStorage() {
   const localStorageShows = localStorage.getItem('show');

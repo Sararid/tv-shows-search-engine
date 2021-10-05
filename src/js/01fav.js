@@ -11,10 +11,8 @@ function handleFav(e) {
       return ele.id === clickedId;
     });
     favoriteSeries.push(showEle);
-
   } else {
     favoriteSeries.splice(favFound, 1);
-
   }
 
   renderFavList(); //esto pinta 
@@ -28,22 +26,24 @@ function renderFavList() {
     const image = fav.image;
     const id = fav.id;
     let getImage = '';
+
     const newItemList = document.createElement('li');
     const img = document.createElement('img');
     const textName = document.createElement('p');
     const textField = document.createTextNode(nameShow);
+
     newItemList.id = id;
-    newItemList.className = "styleListFav js_li";
+    newItemList.className = "styleLiFavorite__listFav js_li";
 
     const removeFav = document.createElement('i');
-    removeFav.className = 'fas fa-times-circle styleRemove';
+    removeFav.className = 'fas fa-times styleRemove';
+
 
     if (image !== null) {
       getImage = image.medium;
       img.src = getImage;
     } else {
       img.src = placeholderImage;
-
     }
     img.alt = nameShow;
     textName.appendChild(textField);

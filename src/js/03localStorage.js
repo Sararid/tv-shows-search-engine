@@ -5,6 +5,8 @@ function setInLocalStorage() {
   localStorage.setItem('show', stringList);
 }
 
+
+
 function getInLocalStorage() {
   const localStorageShows = localStorage.getItem('show');
   favoriteSeries = JSON.parse(localStorageShows);

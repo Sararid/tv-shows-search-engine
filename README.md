@@ -27,4 +27,4 @@ npm start
 
 )
 
-<p> You can also check the website here: http://beta.adalab.es/modulo-2-evaluacion-final-Sararid/  </p>
+<p> You can also check the website here:   </p>
