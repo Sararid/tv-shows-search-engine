@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;500&family=Staatliches&display=swap"
+    rel="stylesheet">
+  <script src="https://kit.fontawesome.com/53701ab895.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="./assets/css/main.css" />
+  <title>TV SHOW SEARCH ENGINE</title>
+</head>
+
+<body class="page">
+
+  <header class="header">
+    <h1>TV show search engine</h1>
+  </header>
+  <main>
+    <section class="section">
+      <div class="section__container1">
+        <form action="" method="get" class="section__form">
+          <label for="shows" class="section__form--title">Name of tv show:
+          </label>
+          <input type="text" name="shows" id="seriesChoice" class="js_inputUser section__form--input" />
+          <input type="button" value="Search" class="js_btn styleBtn" />
+        </form>
+      </div>
+      <p class="js_errorMessage"></p>
+    </section>
+    <section class="wrapper">
+
+      <div class="section__containerFavShow">
+        <h2 class="style__title">List of favorite shows: </h2>
+        <ul class="js_favoriteList styleLiFavorite"></ul>
+      </div>
+
+      <div class="section__containerListShows">
+        <h2 class="style__title"> TV shows:</h2>
+        <ul class="js_movielist section__containerListShows--styleLi"></ul>
+      </div>
+
+
+    </section>
+  </main>
+
+  <script src="./assets/js/main.js"></script>
+</body>
+
+</html>
