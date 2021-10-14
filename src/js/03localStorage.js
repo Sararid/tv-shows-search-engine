@@ -1,10 +1,8 @@
 'use strict';
-
 function setInLocalStorage() {
   const stringList = JSON.stringify(favoriteSeries);
   localStorage.setItem('show', stringList);
 }
-
 
 
 function getInLocalStorage() {

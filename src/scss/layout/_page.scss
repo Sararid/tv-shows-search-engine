@@ -2,4 +2,7 @@ body {
   height: 100vh;
   margin: 0 0;
   font-family: $font-main;
+  box-sizing: border-box;
+  background-color: black;
+  color: white;
 }

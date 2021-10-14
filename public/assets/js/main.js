@@ -1,6 +1,4 @@
 "use strict";
-
-
 const userInput = document.querySelector('.js_inputUser');
 const searchBtn = document.querySelector(".js_btn");
 const seriesListHtml = document.querySelector(".js_movielist");
@@ -132,12 +130,10 @@ function handleClickLi() {
 
 
 'use strict';
-
 function setInLocalStorage() {
   const stringList = JSON.stringify(favoriteSeries);
   localStorage.setItem('show', stringList);
 }
-
 
 
 function getInLocalStorage() {

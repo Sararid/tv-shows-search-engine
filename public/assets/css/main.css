@@ -6,7 +6,10 @@
 body {
   height: 100vh;
   margin: 0 0;
-  font-family: "Staatliches", cursive; }
+  font-family: "Staatliches", cursive;
+  box-sizing: border-box;
+  background-color: black;
+  color: white; }
 
 .header {
   display: flex;
@@ -42,7 +45,7 @@ body {
     display: flex;
     justify-content: space-around; }
   @media all and (max-width: 768px) {
-    .section__container2--styleLi {
+    .section__containerListShows--styleLi {
       display: flex;
       flex-direction: row;
       justify-content: center;
@@ -71,7 +74,6 @@ body {
       grid-template-columns: 1fr; } }
 
 .styleLiFavorite__listFav {
-  background-color: white;
   color: #e50914;
   list-style: none;
   margin-top: 10px;
